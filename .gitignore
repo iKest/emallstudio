@@ -90,12 +90,11 @@ typings/
 # Ignore all local history of files
 .history
 
-config/*.json5
-config/*.json
-config/*.js
 
 dist/
+public/
 public_html/
+oldSrc/
 
 
 # End of https://www.gitignore.io/api/node,visualstudiocode
