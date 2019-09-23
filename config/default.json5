@@ -1,0 +1,78 @@
+{
+    production: false,
+    app: {
+        // Путь к папке с билдом
+        distFolder: './public_html',
+        // Ширина игры
+        GAME_WIDTH: 1248,
+        //  Высота игры
+        GAME_HEIGHT: 2208,
+        // Адрес хостинга приложения (для дев. режима значение порта совпадает со значением порта дев. сервера PORT)
+        APP_URL: 'http://localhost:8080/index.html',
+        // Путь к полифиллу
+        polyfill: 'https://polyfill.io/v3/polyfill.js?features=es5,es6,es7&flags=gated',
+        // Путь к основному скрипту игры
+        bundle: '/js/bundle.js',
+        // Путь к ресурсам игры
+        ASSETS_PATH: 'assets',
+        // Порт дев. сервера (browserSync)
+        PORT: 8080,
+        // Порт интерфейса дев. сервера (browserSync)
+        UI_PORT: 8081
+    },
+    // Данные для рендера HTML страниц
+    html_data: {
+        // URL к favicon
+        favicon: '/icons/favicon.ico',
+        // URL к файлу манифеста
+        manifest: '/manifest.json',
+        // цвет адресной строки и строки уведомлений браузера
+        themeColor: '#ff0000',
+        // Каноническая ссылка на сайт с игрой
+        canonical: 'http://localhost:8080',
+        // Заголовок страницы с игрой
+        title: 'The Blast Game',
+        // Короткое имя для манифеста
+        shortName: 'Blast',
+        // Описание страницы с игрой
+        description: 'Захватывающее приключение начинается. Будь самым лучшим! Будь самым сильным',
+        // URL к файлу конфигурации для MS IE и MS Edge
+        msConfig: '/browserconfig.xml',
+        apple: {
+            maskIcon: {
+                // URL к монохромной векторной маске иконки для закреплённых вкладок Safari и кнопок на тач-баре
+                href: '/icons/safari-pinned-tab.svg',
+                // цвет при наведении на иконку для закреплённых вкладок Safari и кнопок на тач-баре.
+                color: '#000000'
+            },
+            touchIcon: {
+                // URL к иконке для закреплённых вкладок Safari и кнопок на тач-баре
+                href: '/icons/icon180.png', // URL к иконке для закреплённых вкладок Safari и кнопок на тач-баре
+                // Размер иконки для закреплённых вкладок Safari и кнопок на тач-баре
+                sizes: '180x180'
+            }
+        },
+        facebook: {
+            // заголовок страницы для Open Graph
+            title: 'The Blast Game',
+            // Тип побъекта на странице для Open Graph
+            type: 'website',
+            // Краткое описание страницы длиной не более 300 символов для Open Graph
+            description: 'Самая крутая игра в мире! Попробуй и стань лучшим из лучших!',
+            // Адрес сайта для Open Graph
+            url: 'http://localhost:8080',
+            // URL изображения, характеризующего страницу для Open Graph
+            image: 'http://localhost:8080/icons/fb.png',
+            // Название сайта для Open Graph
+            siteName: 'The Blast Game',
+            // Язык страницы для Open Graph
+            locale: 'ru_RU',
+            // id администатора приложения или группы приложения на FaceBook (необязательное значение)
+            admins: 100004865342063
+        },
+        // Путь к лоадеру скриптов
+        loader: '/js/loader.js',
+        // Путь к стилям
+        style: '/styles/style.css'
+    }
+}

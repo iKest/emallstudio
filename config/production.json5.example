@@ -1,0 +1,16 @@
+{
+    production: true,
+    app: {
+        APP_URL: 'https://github.io/ikest/blast/index.html',
+        bundle: '/js/bundle.min.js',
+    },
+    html_data: {
+        canonical: 'https://github.io/ikest/blast',
+        facebook: {
+            url: 'https://github.io/ikest/blast',
+            image: 'https://github.io/ikest/blast'
+        }
+        loader: '/js/loader.min.js',
+        style: '/styles/main.min.css'
+    }
+}

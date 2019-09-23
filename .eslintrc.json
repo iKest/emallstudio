@@ -4,6 +4,15 @@
     "parserOptions": {
         "sourceType": "module"
     },
+    "globals": {
+        "APP_URL": true,
+        "GAME_HEIGHT": true,
+        "GAME_WIDTH": true,
+        "ASSETS_PATH": true,
+        "Bundle": true,
+        "BUNDLE": true,
+        "POLYFILL": true
+    },
     "rules": {
         "import/prefer-default-export": "off",
         "no-bitwise": ["error", {

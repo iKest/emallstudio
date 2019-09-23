@@ -1,0 +1,41 @@
+<title>{{ title }}</title>
+<meta charset="utf-8">
+<meta name="description" content="{{description}}">
+<link rel="icon" href="{{favicon}}" type="image/x-icon"/>
+<link rel="shortcut icon" href="{{favicon}}" type="image/x-icon"/>
+<link rel="manifest" href="{{manifest}}">
+<!-- Microsoft/Edge -->
+<meta name="msapplication-config" content="{{msConfig}}">
+
+<meta name="theme-color" content="{{themeColor}}">
+
+<!-- Apple/Safari -->
+<link rel="mask-icon" href="{{apple.maskIcon.href}}" color="{{apple.maskIcon.color}}">
+<link rel="apple-touch-icon" sizes="{{apple.touchIcon.sizes}}" href="{{apple.touchIcon.htef}}">
+
+<!-- Mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="format-detection" content="telephone=no, email=no" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="true">
+<meta name="MobileOptimized" content="320">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<meta name="msapplication-tap-highlight" content="no">
+
+<link rel="canonical" href="{{canonical}}">
+
+<!-- Facebook Open Graph -->
+<meta property="og:title" content="{{facebook.title}}">
+<meta property="og:type" content="{{facebook.type}}">
+<meta property="og:locale" content="{{facebook.locale}}">
+<meta property="og:description" content="{{facebook.description}}">
+<meta property="og:url" content="{{facebook.url}}">
+<meta property="og:image" content="{{facebook.image}}">
+<meta property="og:site_name" content="{{facebook.site_name}}">
+{% if facebook.admins %}
+<meta property="fb:admins" content="{{facebook.admins}}">
+{% endif %}
