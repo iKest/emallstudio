@@ -1,5 +1,0 @@
-.your-style {
-    font-family: 'Komika Title - Axis RUS-LAT';
-    font-weight: normal;
-    font-style: normal;
-}

@@ -1,17 +1,17 @@
 {
     production: true,
     app: {
-        APP_URL: 'https://github.io/ikest/blast/index.html',
-        bundle: '/js/bundle.min.js'
+        APP_URL: 'http://test.ikestyvt.beget.tech/',
+        bundle: '/js/bundle.min.js',
+        external: '/js/external.min.js',
     },
     html_data: {
-        canonical: 'https://github.io/ikest/blast',
+        canonical: 'http://test.ikestyvt.beget.tech',
         facebook: {
-            url: 'https://github.io/ikest/blast',
-            image: 'https://github.io/ikest/blast/assets/icons/fb.png'
+            url: 'http://test.ikestyvt.beget.tech',
+            image: 'http://test.ikestyvt.beget.tech/fb.png'
         },
         loader: '/js/loader.min.js',
-        style: '/styles/main.min.css'
-
+        style: '/styles/style.min.css',
     }
 }

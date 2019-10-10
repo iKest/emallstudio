@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 
-export default {
+export const gameConfig = {
     type: Phaser.AUTO,
     disableContextMenu: true, // Отключаем отрытие контекстного меню при нажатии правой конпи мыши
     transparent: true, // Устанавливаем прозрачный бэкграунд
@@ -9,10 +9,10 @@ export default {
     },
     scale: {
         parent: document.querySelector('.game-container'), // Родительский контрейнер
-        mode: Phaser.Scale.FIT, // Растягиваем канвас по по ширине родителя, сохраняя пропорции
+        mode: Phaser.Scale.FIT, // Растягиваем канвас по по высоте родителя, сохраняя пропорции
         autoCenter: Phaser.Scale.CENTER_BOTH, // Центруем канвас
-        resolution: window.devicePixelRatio || 1, // Разрешение (оношение физических пикселей экрана к css пикселям)
         width: GAME_WIDTH, // Натуральная ширина игрового поля
-        height: GAME_HEIGHT // Натуральная высота игрового поля
+        height: GAME_HEIGHT, // Натуральная высота игрового поля
+        expandParent: false
     }
 };

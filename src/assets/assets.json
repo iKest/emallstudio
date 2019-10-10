@@ -8,26 +8,14 @@
             },
             {
                 "type": "atlas",
-                "key": "atlas1",
-                "textureURL": "atlases/atlas1.png",
-                "atlasURL": "atlases/atlas1.json"
-            },
-            {
-                "type": "atlas",
-                "key": "atlas2",
-                "textureURL": "atlases/atlas2.png",
-                "atlasURL": "atlases/atlas2.json"
-            },
-            {
-                "type": "atlas",
-                "key": "atlas3",
-                "textureURL": "atlases/atlas3.png",
-                "atlasURL": "atlases/atlas3.json"
+                "key": "atlas",
+                "textureURL": "atlases/atlas.png",
+                "atlasURL": "atlases/atlas.json"
             },
             {
                 "type": "spritesheet",
-                "key": "tile1",
-                "url": "spritesheets/01.png",
+                "key": "coffee_1",
+                "url": "spritesheets/coffee01.png",
                 "frameConfig": {
                     "frameWidth": 100,
                     "frameHeight": 100
@@ -35,8 +23,8 @@
             },
             {
                 "type": "spritesheet",
-                "key": "tile2",
-                "url": "spritesheets/02.png",
+                "key": "coffee_2",
+                "url": "spritesheets/coffee02.png",
                 "frameConfig": {
                     "frameWidth": 100,
                     "frameHeight": 100
@@ -44,8 +32,8 @@
             },
             {
                 "type": "spritesheet",
-                "key": "tile3",
-                "url": "spritesheets/03.png",
+                "key": "coffee_3",
+                "url": "spritesheets/coffee03.png",
                 "frameConfig": {
                     "frameWidth": 100,
                     "frameHeight": 100
@@ -53,8 +41,8 @@
             },
             {
                 "type": "spritesheet",
-                "key": "tile4",
-                "url": "spritesheets/04.png",
+                "key": "coffee_4",
+                "url": "spritesheets/coffee04.png",
                 "frameConfig": {
                     "frameWidth": 100,
                     "frameHeight": 100
@@ -62,8 +50,26 @@
             },
             {
                 "type": "spritesheet",
-                "key": "tile5",
-                "url": "spritesheets/05.png",
+                "key": "coffee_5",
+                "url": "spritesheets/coffee05.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 100
+                }
+            },
+            {
+                "type": "spritesheet",
+                "key": "coffee_6",
+                "url": "spritesheets/coffee06.png",
+                "frameConfig": {
+                    "frameWidth": 100,
+                    "frameHeight": 100
+                }
+            },
+            {
+                "type": "spritesheet",
+                "key": "coffee_7",
+                "url": "spritesheets/coffee07.png",
                 "frameConfig": {
                     "frameWidth": 100,
                     "frameHeight": 100
@@ -78,6 +84,16 @@
                 "type": "json",
                 "key": "atlas_data",
                 "url": "jsons/atlas_data.json"
+            },
+            {
+                "type": "rexWebFont",
+                "key": "webfont",
+                "config": {
+                    "custom": {
+                        "families": ["KomikaTitle", "Antikvar"],
+                        "urls": ["assets/fonts/komika/stylesheet.css", "assets/fonts/antikvar/stylesheet.css"]
+                    }
+                }
             }
         ]
     },

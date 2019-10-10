@@ -1,20 +1,25 @@
 <title>{{ title }}</title>
 <meta charset="utf-8">
 <meta name="description" content="{{description}}">
-<link rel="icon" href="{{favicon}}" type="image/x-icon"/>
-<link rel="shortcut icon" href="{{favicon}}" type="image/x-icon"/>
-<link rel="manifest" href="{{manifest}}">
-<!-- Microsoft/Edge -->
-<meta name="msapplication-config" content="{{msConfig}}">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="manifest" href="/site.webmanifest">
 
 <meta name="theme-color" content="{{themeColor}}">
 
+<!-- Microsoft/Edge -->
+<meta name="msapplication-config" content="{{msConfig}}">
+<meta name="msapplication-TileColor" content="{{tileColor}}">
+
 <!-- Apple/Safari -->
-<link rel="mask-icon" href="{{apple.maskIcon.href}}" color="{{apple.maskIcon.color}}">
-<link rel="apple-touch-icon" sizes="{{apple.touchIcon.sizes}}" href="{{apple.touchIcon.htef}}">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="{{maskColor}}">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
 
 <!-- Mobile -->
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="format-detection" content="telephone=no, email=no" />

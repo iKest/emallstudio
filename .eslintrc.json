@@ -11,9 +11,11 @@
         "ASSETS_PATH": true,
         "Bundle": true,
         "BUNDLE": true,
-        "POLYFILL": true
+        "POLYFILL": true,
+        "EXTERNAL": true
     },
     "rules": {
+        "camelcase": ["error", {"allow": ["^next_", "^enter_", "^exit_"]}],
         "import/prefer-default-export": "off",
         "no-bitwise": ["error", {
             "int32Hint": true

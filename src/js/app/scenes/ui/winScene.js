@@ -6,4 +6,8 @@ export class WinScene extends Scene {
             key: 'WinScene'
         });
     }
+
+    create() {
+        super.create();
+    }
 }

@@ -8,6 +8,7 @@ export class BootScene extends Scene {
     }
 
     preload() {
+        this.log.info('preload');
         this.load.once('complete', this.complete, this);
         this.load.once('loaderror', this.loadError, this);
         this.load.on('filecomplete', this.fileComplete, this);
@@ -19,6 +20,8 @@ export class BootScene extends Scene {
         this.load.off('loaderror', this.loadError, this);
         this.load.off('filecomplete', this.fileComplete, this);
         this.log.info('Все ассеты загружены');
+        this.registry.set('score', 0);
+        this.registry.set('matches', this.cache.json.get('atlas_data').matches);
         /* Объявление анимаций спрайтов
         const animFrames = this.anims.generateFrameNumbers('tile', {
             start: 0,
@@ -33,14 +36,26 @@ export class BootScene extends Scene {
             hideOnComplete: false
         });
         */
-
-        // Запускем парралельно сцену с фоновфм изображением
-        this.scene.launch('BackScene', 'bg');
-        // Переключаемся на сцену приветствия
-        this.scene.start('HelloScene');
+        // eslint-disable-next-line no-restricted-globals
+        self.loaderStop();
+        // Запускем сцену с фоновфм изображением
+        this.scene.transition({
+            target: 'BackScene',
+            duration: 500,
+            onUpdate: progress => {
+                try {
+                    document.querySelector('.loader_overlay').style.opacity = 1 - progress;
+                } catch (e) {
+                    this.log.warn(e);
+                }
+            },
+            onUpdateScope: this
+        });
     }
 
     loadError(file) {
+        // eslint-disable-next-line no-restricted-globals
+        self.loaderStop();
         this.log.error('ошибка загрузки файла:', file.src);
         this.load.off('complete', this.complete, this);
         this.load.off('loaderror', this.loadError, this);

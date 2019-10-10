@@ -5,7 +5,7 @@
       "selector-pseudo-element-colon-notation": "single",
       "font-family-no-missing-generic-family-keyword": true,
       "at-rule-no-unknown": [true, {
-      "ignoreAtRules": ["function", "if", "each", "include", "mixin", "for"]
+      "ignoreAtRules": ["function", "if", "each", "include", "mixin", "for", "return"]
     }]
   }
 }

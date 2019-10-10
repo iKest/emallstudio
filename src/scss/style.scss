@@ -1,16 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import "../../node_modules/normalize.css/normalize.css";
 
+@function scale($val) {
+    @return $val*0.15vmin;
+}
+
 /* Variables */
 
 $pink: #f98db9;
 $blue: #97ddff;
 $yellow: #ffcd66;
-$green: rgb(28, 102, 28);
+$green: rgb(0, 0, 0);
 $font:'Montserrat', sans-serif;
 $heading: rgb(87, 110, 129);
 $sub: #ff1f79;
-$black: 0 0 19px 0 rgba(0, 0, 0, 0.16) inset;
+$black: 0 0 scale(19) 0 rgba(0, 0, 0, 0.16) inset;
 
 /* Mixins */
 
@@ -26,7 +30,7 @@ $black: 0 0 19px 0 rgba(0, 0, 0, 0.16) inset;
 @mixin hole($col) {
     border-radius: 100%;
     background: transparent;
-    box-shadow: 0 0 0 10px $col, $black;
+    box-shadow: 0 0 0 scale(10) $col, $black;
     position: absolute;
 }
 
@@ -46,59 +50,64 @@ $black: 0 0 19px 0 rgba(0, 0, 0, 0.16) inset;
     -o-user-select: none;
 }
 
+html {
+    touch-action: pan-down;
+    -ms-touch-action: pan-down;
+}
+
+html,
 body {
-    height: 100vh;
-    font-family: $font;
-    text-align: center;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
+}
+
+body {
+    font-family: $font;
     background-image: url(../assets/images/backgroundMain.jpg);
-    background-position: center right;
+    background-position: right bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-
-    h1 {
-        text-transform: uppercase;
-        font-size: 30px;
-        color: $heading;
-        margin: 30px 0  0 0;
-    }
-
-    h2 {
-        font-weight: normal;
-        font-size: 18px;
-        color: $sub;
-        margin: 10px 0 0 0;
-    }
-
-    .progress {
-        z-index: 1;
-
-        p {
-            margin: 0 auto;
-            font-weight: normal;
-            font-size: 18px;
-            color: $green;
-        }
-    }
 
     .game-container {
         height: 100%;
         width: 100%;
         position: absolute;
-        top: 0 !important;
+    }
+
+    h1 {
+        text-transform: uppercase;
+        font-size: scale(30);
+        color: $heading;
+        margin: scale(30) 0 0 0;
+    }
+
+    h2 {
+        font-weight: normal;
+        font-size: scale(18);
+        color: $sub;
+        margin: scale(10) 0 0 0;
+    }
+
+    p {
+        margin: 0 auto;
+        font-weight: normal;
+        font-size: scale(18);
+        color: $green;
     }
 
     .loader {
-        height: 100%;
+        text-align: center;
         margin: auto;
-        width: 400px;
+        width: scale(400);
+        height: 100%;
 
         &_overlay {
-            width: 150px;
-            height: 150px;
+            width: scale(150);
+            height: scale(150);
             background: transparent;
-            box-shadow: 0 0 0 2000px rgba(255, 255, 255, 0.67), $black;
+            box-shadow: 0 0 0 100vmax rgba(255, 255, 255, 0.67), $black;
             border-radius: 100%;
             z-index: -1;
 
@@ -107,17 +116,17 @@ body {
 
         &_cogs {
             z-index: -2;
-            width: 100px;
-            height: 100px;
-            top: -120px !important;
+            width: scale(100);
+            height: scale(100);
+            top: scale(-120) !important;
 
             @include center;
 
             &__top {
                 position: relative;
-                width: 100px;
-                height: 100px;
-                transform-origin: 50px 50px;
+                width: scale(100);
+                height: scale(100);
+                transform-origin: scale(50) scale(50);
                 animation: rotate 10s infinite linear;
 
                 @for $i from 1 through 3 {
@@ -127,18 +136,18 @@ body {
                 }
 
                 div.top_part {
-                    width: 100px;
-                    border: 20px solid $pink;
+                    width: scale(100);
+                    border: scale(20) solid $pink;
                     box-sizing: border-box;
-                    border-radius: 10px;
+                    border-radius: scale(10);
                     position: absolute;
-                    height: 100px;
+                    height: scale(100);
                     background: transparent;
                 }
 
                 div.top_hole {
-                    width: 50px;
-                    height: 50px;
+                    width: scale(50);
+                    height: scale(50);
 
                     @include hole($pink);
                     @include center;
@@ -147,13 +156,13 @@ body {
 
             &__left {
                 position: relative;
-                width: 80px;
+                width: scale(80);
                 transform: rotate(16deg);
-                top: 28px;
-                transform-origin: 40px 40px;
+                top: scale(28);
+                transform-origin: scale(40) scale(40);
                 animation: rotate_left 10s 0.1s infinite reverse linear;
-                left: -24px;
-                height: 80px;
+                left: scale(-24);
+                height: scale(80);
 
                 @for $i from 1 through 3 {
                     div:nth-of-type(#{$i}) {
@@ -162,18 +171,18 @@ body {
                 }
 
                 div.left_part {
-                    width: 80px;
-                    border-radius: 6px;
+                    width: scale(80);
+                    border-radius: scale(6);
                     position: absolute;
-                    border: 15px solid $blue;
+                    border: scale(15) solid $blue;
                     box-sizing: border-box;
-                    height: 80px;
+                    height: scale(80);
                     background: transparent;
                 }
 
                 div.left_hole {
-                    width: 40px;
-                    height: 40px;
+                    width: scale(40);
+                    height: scale(40);
 
                     @include hole($blue);
                     @include center;
@@ -182,13 +191,13 @@ body {
 
             &__bottom {
                 position: relative;
-                width: 60px;
-                top: -65px;
-                transform-origin: 30px 30px;
+                width: scale(60);
+                top: scale(-65);
+                transform-origin: scale(30) scale(30);
                 animation: rotate_left 10.2s 0.4s infinite linear;
                 transform: rotate(4deg);
-                left: 79px;
-                height: 60px;
+                left: scale(79);
+                height: scale(60);
 
                 @for $i from 1 through 3 {
                     div:nth-of-type(#{$i}) {
@@ -197,18 +206,18 @@ body {
                 }
 
                 div.bottom_part {
-                    width: 60px;
-                    border-radius: 5px;
-                    border: 10px solid $yellow;
+                    width: scale(60);
+                    border-radius: scale(5);
+                    border: scale(10) solid $yellow;
                     box-sizing: border-box;
                     position: absolute;
-                    height: 60px;
+                    height: scale(60);
                     background: transparent;
                 }
 
                 div.bottom_hole {
-                    width: 30px;
-                    height: 30px;
+                    width: scale(30);
+                    height: scale(30);
 
                     @include hole($yellow);
                     @include center;

@@ -1,0 +1,112 @@
+{
+    "BackScene": {
+        "bg": {
+            "frames":["bg"]
+        }
+    },
+    "HelloScene":{
+        "bg": {
+            "atlas":"atlas",
+            "frames": ["logo_em", "logo_it", "start_u", "start_ul","start_ur","start_d","start_dl","start_dr","start_l","start_r"]
+        },
+        "ui": {
+            "btn" : [
+                {
+                    "action": "switchScene",
+                    "target": "GameScene",
+                    "img": {
+                        "atlas": "atlas",
+                        "frame": "play"
+                    },
+                    "txt": {
+                        "name":"play",
+                        "font":"KomikaTitle",
+                        "size": 112,
+                        "color": "#FAE9E7",
+                        "text": ["играть", "play"]
+                    }
+                }
+            ]
+        }
+    },
+    "WinScene": {
+        "bg": {
+            "atlas":"atlas",
+            "frames":["logo_em", "logo_it","promo", "victory_up", "victory_ul", "victory_ur", "victory_l", "victory_r", "victory_dc", "victory_dl", "victory_dr", "victory_dcl", "victory_dcr"]
+        },
+        "ui": {
+            "btn" : [
+                {
+                    "action": "switchScene",
+                    "target": "GameScene",
+                    "img": {
+                        "atlas": "atlas",
+                        "frame": "play_again"
+                    },
+                    "txt": {
+                        "name":"playAgain",
+                        "font":"KomikaTitle",
+                        "size": 100,
+                        "color": "#FAE9E7",
+                        "text": ["играть снова", "play again"]
+                    }
+                }
+            ]
+        }
+    },
+    "GameScene": {
+        "bg": {
+            "atlas":"atlas",
+            "frames":["matches", "score"],
+            "txt": [
+                {
+                    "name": "scoreDesc",
+                    "font":"Antikvar",
+                    "size": 50,
+                    "color": "#793C1D",
+                    "text": ["Счёт", "Score"],
+                    "x": 166,
+                    "y": 220,
+                    "originX": 0.5,
+                    "originY": 1,
+                    "style": "bold"
+                },
+                {
+                    "name:":"movesDesc",
+                    "font":"Antikvar",
+                    "size": 50,
+                    "color": "#793C1D",
+                    "text": ["Ходы", "Moves"],
+                    "x": 497,
+                    "y": 220,
+                    "originX": 0.5,
+                    "originY": 1,
+                    "style": "bold"
+                }
+            ]
+        }
+    },
+    "HUDScene": {
+        "ui": {
+            "btn" : [
+                {
+                    "action": "restartScene",
+                    "target": "",
+                    "img": {
+                        "atlas": "atlas",
+                        "frame": "restart"
+                    },
+                    "txt": {
+                        "name": "restart",
+                        "font":"KomikaTitle",
+                        "size": 38,
+                        "color": "#FAE9E7",
+                        "text": ["рестарт", "restart"]
+                    }
+                }
+            ]
+        }
+    },
+    "tiles":["coffee_1", "coffee_2", "coffee_3", "coffee_4", "coffee_5"],
+    "matches": 10
+}

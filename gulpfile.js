@@ -7,6 +7,7 @@ const common = require('rollup-plugin-commonjs');
 const globals = require('rollup-plugin-node-globals');
 const builtins = require('rollup-plugin-node-builtins');
 const progress = require('rollup-plugin-progress');
+const externalGlobals = require('rollup-plugin-external-globals');
 const json = require('rollup-plugin-json');
 const babel = require('rollup-plugin-babel');
 const sass = require('gulp-sass');
@@ -17,6 +18,7 @@ const autoprefixer = require('autoprefixer');
 const cleanCss = require('gulp-clean-css');
 const gif = require('gulp-if');
 const del = require('del');
+const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 const nunjucksRender = require('gulp-nunjucks-render');
 const filesize = require('rollup-plugin-filesize');
@@ -31,25 +33,29 @@ const plugins = [
     json(),
     resolve(),
     common(),
+    externalGlobals({
+        phaser: 'Phaser'
+    }),
     builtins(),
     globals(),
     replace({
         CANVAS_RENDERER: JSON.stringify(true),
         WEBGL_RENDERER: JSON.stringify(true),
+        EXPERIMENTAL: JSON.stringify(true),
+        FEATURE_SOUND: JSON.stringify(true),
         APP_URL: JSON.stringify(app.APP_URL),
         ASSETS_PATH: JSON.stringify(app.ASSETS_PATH),
         GAME_WIDTH: JSON.stringify(app.GAME_WIDTH),
         GAME_HEIGHT: JSON.stringify(app.GAME_HEIGHT),
         BUNDLE: JSON.stringify(app.bundle),
-        POLYFILL: JSON.stringify(app.polyfill)
+        POLYFILL: JSON.stringify(app.polyfill),
+        EXTERNAL: JSON.stringify(app.external)
     })
 ];
 
 production &&
     plugins.push(
-        babel({
-            exclude: 'node_modules/**'
-        }),
+        babel(),
         terser({
             sourcemap: true,
             compress: true,
@@ -105,22 +111,35 @@ const assetsFile = () =>
 const browserConfig = () =>
     src('./src/assets/site/browserconfig.xml', {
         allowEmpty: true
-    }).pipe(dest(`${app.distFolder}`));
+    }).pipe(dest(app.distFolder));
 
 const icons = () =>
-    src('./src/assets/icons/**/*', {
+    src('./src/assets/site/**/*.+(png|ico|svg)', {
         allowEmpty: true
-    }).pipe(dest(`./${app.distFolder}/icons`));
+    }).pipe(dest(app.distFolder));
+
+const phaser = () =>
+    src(
+        production
+            ? './node_modules/phaser/dist/phaser.min.js'
+            : './node_modules/phaser/dist/phaser.js',
+        {
+            allowEmpty: true
+        }
+    )
+        .pipe(rename({ basename: 'external', suffix: production ? '.min' : '' }))
+        .pipe(dest(`${app.distFolder}/js`));
 
 const manifest = () =>
-    src('./src/assets/site/manifest.json')
+    src('./src/assets/site/site.webmanifest')
         .pipe(
             jeditor({
                 name: htmlData.title,
-                short_name: htmlData.shortName
+                short_name: htmlData.shortName,
+                orientation: 'portrait'
             })
         )
-        .pipe(dest(`${app.distFolder}`));
+        .pipe(dest(app.distFolder));
 
 const styles = () =>
     src('./src/scss/style.scss', {
@@ -129,6 +148,7 @@ const styles = () =>
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([cssImport, autoprefixer, presetEnv()]))
         .pipe(gif(production, cleanCss()))
+        .pipe(gif(production, rename({ suffix: '.min' })))
         .pipe(
             dest(`${app.distFolder}/styles`, {
                 sourcemaps: production ? false : '.'
@@ -153,7 +173,7 @@ const jsBundle = async () => {
     });
     caches.bundle = bundle.cache;
     return bundle.write({
-        file: `${app.distFolder}/js/bundle.js`,
+        file: `${app.distFolder}/js/bundle${production ? '.min' : ''}.js`,
         format: 'umd',
         name: 'Bundle',
         sourcemap: !production
@@ -168,7 +188,7 @@ const jsLoader = async () => {
     });
     caches.loader = bundle.cache;
     return bundle.write({
-        file: `${app.distFolder}/js/loader.js`,
+        file: `${app.distFolder}/js/loader${production ? '.min' : ''}.js`,
         format: 'iife',
         sourcemap: !production
     });
@@ -195,9 +215,9 @@ const watchSoursce = async () => {
     watch('src/assets/spritesheets/**/*', series(spritesheets));
     watch('src/assets/jsons/**/*', series(jsons));
     watch('src/assets/fonts/**/*', series(fonts));
-    watch('src/assets/icons/**/*', series(icons));
-    watch('src/assets/site/manifest.json', series(manifest));
-    watch('src/assets/images/browserconfig.xml', series(browserConfig));
+    watch('src/assets/site/**/*.+(png|ico|svg)', series(icons));
+    watch('src/assets/site/site.webmanifest', series(manifest));
+    watch('src/assets/site/browserconfig.xml', series(browserConfig));
     watch('src/assets/assets.json', series(assetsFile));
     watch(`${app.distFolder}/**/*`).on('change', browserSync.reload);
 };
@@ -213,10 +233,12 @@ const build = series(
         atlases,
         spritesheets,
         jsons,
+        fonts,
         icons,
         assetsFile,
         browserConfig,
-        manifest
+        manifest,
+        phaser
     )
 );
 
