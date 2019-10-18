@@ -82,8 +82,18 @@
             },
             {
                 "type": "json",
-                "key": "atlas_data",
-                "url": "jsons/atlas_data.json"
+                "key": "languages",
+                "url": "jsons/languages.json"
+            },
+            {
+                "type": "json",
+                "key": "scenes",
+                "url": "jsons/scenes.json"
+            },
+            {
+                "type": "json",
+                "key": "game",
+                "url": "jsons/game.json"
             },
             {
                 "type": "rexWebFont",

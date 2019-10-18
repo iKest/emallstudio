@@ -1,0 +1,411 @@
+{
+    "BackScene": [
+        {
+            "type": "images",
+            "name": "bg",
+            "data": {
+                "key": "bg",
+                "origin": {
+                    "x": 0,
+                    "y": 0
+                }
+            }
+        }
+    ],
+    "HelloScene": [
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "logo_em",
+            "data": {
+                "key": "atlas",
+                "frame": "logo_em"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "logo_it",
+            "data": {
+                "key": "atlas",
+                "frame": "logo_it"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "start_u",
+            "data": {
+                "key": "atlas",
+                "frame": "start_u"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "start_ul",
+            "data": {
+                "key": "atlas",
+                "frame": "start_ul"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "start_ur",
+            "data": {
+                "key": "atlas",
+                "frame": "start_ur"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "start_d",
+            "data": {
+                "key": "atlas",
+                "frame": "start_d"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "start_dr",
+            "data": {
+                "key": "atlas",
+                "frame": "start_dr"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "start_dl",
+            "data": {
+                "key": "atlas",
+                "frame": "start_dl"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "start_l",
+            "data": {
+                "key": "atlas",
+                "frame": "start_l"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "start_r",
+            "data": {
+                "key": "atlas",
+                "frame": "start_r"
+            }
+        },
+        {
+            "type": "images",
+            "name": "playImage",
+            "positionFromAtlas": true,
+            "data": {
+                "key": "atlas",
+                "frame": "play"
+            }
+        },
+        {
+            "type": "texts",
+            "name": "playText",
+            "positionFromObject": {
+                "type": "images",
+                "name": "playImage",
+                "origin": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            },
+            "text": ["играть", "play"],
+            "data": {
+                "origin": {
+                    "x": 0.5,
+                    "y": 0.6
+                },
+                "style": {
+                    "fontFamily": "KomikaTitle",
+                    "fontSize": "112px",
+                    "color": "#FAE9E7"
+                }
+            }
+        },
+        {
+            "type": "buttons",
+            "name": "play",
+            "action": "switchScene",
+            "actionData": "GameScene",
+            "object": {
+                "type": "images",
+                "name": "playImage"
+            },
+            "data": {
+                "enable": false
+            }
+        }
+    ],
+    "WinScene": [
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "logo_em",
+            "data": {
+                "key": "atlas",
+                "frame": "logo_em"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "logo_it",
+            "data": {
+                "key": "atlas",
+                "frame": "logo_it"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "victory_up",
+            "data": {
+                "key": "atlas",
+                "frame": "victory_up"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "victory_ul",
+            "data": {
+                "key": "atlas",
+                "frame": "victory_ul"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "victory_ur",
+            "data": {
+                "key": "atlas",
+                "frame": "victory_ur"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "victory_l",
+            "data": {
+                "key": "atlas",
+                "frame": "victory_l"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "victory_r",
+            "data": {
+                "key": "atlas",
+                "frame": "victory_r"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "victory_dc",
+            "data": {
+                "key": "atlas",
+                "frame": "victory_dc"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "victory_dl",
+            "data": {
+                "key": "atlas",
+                "frame": "victory_dl"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "victory_dr",
+            "data": {
+                "key": "atlas",
+                "frame": "victory_dr"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "victory_dcl",
+            "data": {
+                "key": "atlas",
+                "frame": "victory_dcl"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "victory_dcr",
+            "data": {
+                "key": "atlas",
+                "frame": "victory_dcr"
+            }
+        },
+        {   "type": "images",
+            "name": "playAgainImage",
+            "positionFromAtlas": true,
+            "data": {
+                "key": "atlas",
+                "frame": "play_again"
+            }
+        },
+        {
+            "type": "texts",
+            "name": "playAgainText",
+            "positionFromObject": {
+                "type": "images",
+                "name": "playAgainImage",
+                "origin": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            },
+            "text": ["играть снова", "play again"],
+            "data": {
+                "origin": {
+                    "x": 0.5,
+                    "y": 0.6
+                },
+                "style": {
+                    "fontFamily":"KomikaTitle",
+                    "fontSize": "100px",
+                    "color": "#FAE9E7"
+                }
+            }
+        },
+        {
+            "type": "buttons",
+            "name": "playAgain",
+            "action": "switchScene",
+            "actionData": "GameScene",
+            "object": {
+                "type": "images",
+                "name": "playAgainImage"
+            },
+            "data": {
+                "enable": false
+            }
+        }
+    ],
+    "GameScene": [
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "matches",
+            "data": {
+                "key": "atlas",
+                "frame": "matches"
+            }
+        },
+        {
+            "type": "images",
+            "positionFromAtlas": true,
+            "name": "score",
+            "data": {
+                "key": "atlas",
+                "frame": "score"
+            }
+        },
+        {
+            "type": "texts",
+            "name": "scoreDesc",
+            "text": ["Счёт", "Score"],
+            "data": {
+                "x": 166,
+                "y": 220,
+                "style": {
+                    "fontFamily":"Antikvar",
+                    "fontStyle": "bold",
+                    "fontSize": "50px",
+                    "color": "#793C1D"
+                },
+                "origin": {
+                    "x": 0.5,
+                    "y": 1
+                }
+            }
+        },
+        {
+            "type": "texts",
+            "name:":"movesDesc",
+            "text": ["Ходы", "Moves"],
+            "data": {
+                "x": 497,
+                "y": 220,
+                "style": {
+                    "fontFamily":"Antikvar",
+                    "fontStyle": "bold",
+                    "fontSize": "50px",
+                    "color": "#793C1D"
+                },
+                "origin": {
+                    "x": 0.5,
+                    "y": 1
+                }
+            }
+        }
+    ],
+    "HUDScene": [
+        {
+            "type": "images",
+            "name": "restartImage",
+            "positionFromAtlas": true,
+            "data": {
+                "key": "atlas",
+                "frame": "restart"
+            }
+        },
+        {
+            "type": "texts",
+            "name": "restartText",
+            "positionFromObject": {
+                "type": "images",
+                "name": "restartImage",
+                "origin": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            },
+            "text": ["рестарт", "restart"],
+            "data": {
+                "origin": {
+                    "x": 0.5,
+                    "y": 0.6
+                },
+                "style": {
+                    "fontFamily":"KomikaTitle",
+                    "fontSize": "38px",
+                    "color": "#FAE9E7"
+                }
+            }
+        },
+        {
+            "type": "buttons",
+            "name": "restart",
+            "action": "restartScene",
+            "actionData": "tapBoard",
+            "object": {
+                "type": "images",
+                "name": "restartImage"
+            }
+        }
+    ]
+}

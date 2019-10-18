@@ -1,0 +1,51 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import "../../node_modules/normalize.css/normalize.css";
+
+/* Variables */
+$font:'Montserrat', Arial, Helvetica, sans-serif;
+
+* {
+    box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+    -khtml-user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -ms-user-drag: none;
+    -khtml-user-drag: none;
+    -o-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+body {
+    font-family: $font;
+    background-image: url(bg.jpg);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.gameContainer {
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    font-size: 32px;
+}
