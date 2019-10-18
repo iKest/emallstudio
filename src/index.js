@@ -1,6 +1,9 @@
 import {h, render} from "preact";
 import htm from "htm";
 import App from "./components/app";
+import scrollLock from "scroll-lock";
+
+scrollLock.disablePageScroll();
 
 if (process.env.NODE_ENV === "development") {
   // react devtools

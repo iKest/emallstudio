@@ -90,6 +90,7 @@
         "phaser": "^3.19.0",
         "phaser3-rex-plugins": "https://github.com/rexrainbow/phaser3-rex-notes.git",
         "preact": "^10.0.0",
+        "scroll-lock": "^2.1.2",
         "stats-js": "^1.0.1"
     },
     "scripts": {
