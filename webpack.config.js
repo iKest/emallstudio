@@ -130,9 +130,9 @@ if (production) {
           drop_console: true
         }
       }
-    }),
-    config.analize && new BundleAnalyzerPlugin()
+    })
   );
+  if (config.analize) plugins.push(new BundleAnalyzerPlugin());
 } else {
   plugins.push(
     new webpack.HotModuleReplacementPlugin(), // hot reload

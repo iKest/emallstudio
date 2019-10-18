@@ -3,7 +3,7 @@ const path = require("path");
 const production = process.env.NODE_ENV === "production";
 
 module.exports = {
-  analize: true,
+  analize: false,
   port: {
     front: 3100 // port for devServer
   },
