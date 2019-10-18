@@ -108,9 +108,9 @@ export default class BaseScene extends Phaser.Scene {
   makeTexts(data) {
     if (!data.data.add) data.data.add = true;
     const text = this.make.text(data.data);
-    const add = data.addText? this.registry.get(data.addText) : "";
-    if (data.text && Array.isArray(data.text)) text.setText(`${data.text[this.registry.get("language")]}${add}`);
-    else if (data.text) text.setText(`${data.text}${add}`);
+    if (data.addText) text.setData("add", data.addText);
+    if (data.text) text.setData("text", data.text);
+    this.setText(text);
     if (data.positionFromObject) {
       const object = this[data.positionFromObject.type][
         data.positionFromObject.name
@@ -189,7 +189,20 @@ export default class BaseScene extends Phaser.Scene {
  * description
  * @param {*} target
  */
-switchScene(target) {
+  switchScene(target) {
   this.scene.switch(target);
-}
+  }
+
+  /**
+   * description
+   * @param {Phaser.GameObjects.Text} textElem
+   */
+  setText(textElem){
+    const text = textElem.getData("text");
+    const add = textElem.getData("add");
+    if (text) {
+    if(Array.isArray(text)) textElem.setText(`${text[this.registry.get("language")]}${add ? this.registry.get(add): ""}`);
+    else textElem.setText(`${text}$${add ? this.registry.get(add): ""}`);
+    }
+  }
 }
