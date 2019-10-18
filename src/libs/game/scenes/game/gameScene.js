@@ -45,14 +45,19 @@ export default class GameScene extends BaseScene {
       tiles: ["coffee_1", "coffee_2", "coffee_3", "coffee_4", "coffee_5"]
     });
   }
-
+/**
+ * description
+ */
+  gameOver(){
+    this.scene.switch("WinScene");
+  }
   /**
  * description
  */
-  awake() {
-    this.scene.run("HUDScene");
+  wake() {
+    super.wake();
     this.board.goto("RESET_BOARD");
-    super.awake();
+    this.scene.run("HUDScene");
   }
 
   /**

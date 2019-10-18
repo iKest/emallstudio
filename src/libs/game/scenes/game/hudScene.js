@@ -20,6 +20,8 @@ export default class HUDScene extends BaseScene {
  */
   create() {
     super.create();
+    this.texts.scoreText.setText(this.registry.get("score"));
+    this.texts.movesText.setText(this.registry.get("moves"));
     this.registry.events.on("changedata-score", this.updateScore, this);
     this.registry.events.on("changedata-moves", this.updateMatches, this);
     this.buttons.restart.setEnable(true);
@@ -32,6 +34,7 @@ export default class HUDScene extends BaseScene {
     this.buttons.restart.setEnable(false);
     this.registry.events.off("changedata-score", this.updateScore, this);
     this.registry.events.off("changedata-moves", this.updateMatches, this);
+    super.sleep();
   }
 
   /**
@@ -40,6 +43,8 @@ export default class HUDScene extends BaseScene {
   wake() {
     super.wake();
     this.buttons.restart.setEnable(true);
+    this.texts.scoreText.setText(this.registry.get("score"));
+    this.texts.movesText.setText(this.registry.get("moves"));
     this.registry.events.on("changedata-score", this.updateScore, this);
     this.registry.events.on("changedata-moves", this.updateMatches, this);
   }
@@ -51,18 +56,25 @@ export default class HUDScene extends BaseScene {
   restartScene(target) {
     this.scene.get("GameScene").restartScene();
   }
+
   /**
-   * description
-   * @param  {...any} args
-   */
-  updateMatches(...args) {
-    this.log.info("update matches", args);
+  * description
+  *
+  * @param {*} instance
+  * @param {*} current
+  * @param {*} prev
+  */
+  updateMatches(instance, current, prev) {
+    this.texts.movesText.setText(current);
   }
   /**
-   * description
-   * @param  {...any} args
-   */
-  updateScore(...args) {
-    this.log.info("update score", args);
+  * description
+  *
+  * @param {*} instance
+  * @param {*} current
+  * @param {*} prev
+  */
+  updateScore(instance, current, prev) {
+    this.texts.scoreText.setText(current);
   }
 }

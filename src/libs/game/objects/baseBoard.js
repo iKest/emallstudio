@@ -230,7 +230,10 @@ export default class BaseBoard extends FSM {
    * @return {string}
   */
   next_KILL_ALL() {
-    return "RESET_BOARD";
+    if(this.prevState === "GAME_OVER") {
+      this.killEmitter.killAll();
+      this.scene.gameOver();
+    } else return "RESET_BOARD";
   }
 
   /**

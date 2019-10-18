@@ -67,11 +67,4 @@ export default class HelloScene extends BaseScene {
       .layout();
   }
 
-  /**
- * description
- * @param {*} target
- */
-  switchScene(target) {
-    this.scene.switch(target);
-  }
 }

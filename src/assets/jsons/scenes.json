@@ -286,7 +286,7 @@
                 },
                 "style": {
                     "fontFamily":"KomikaTitle",
-                    "fontSize": "100px",
+                    "fontSize": "80px",
                     "color": "#FAE9E7"
                 }
             }
@@ -305,11 +305,12 @@
             }
         }
     ],
-    "GameScene": [
+    "GameScene": [],
+    "HUDScene": [
         {
             "type": "images",
             "positionFromAtlas": true,
-            "name": "matches",
+            "name": "moves",
             "data": {
                 "key": "atlas",
                 "frame": "matches"
@@ -326,8 +327,8 @@
         },
         {
             "type": "texts",
-            "name": "scoreDesc",
-            "text": ["Счёт", "Score"],
+            "name": "movesDesc",
+            "text": ["Ходы", "Moves"],
             "data": {
                 "x": 166,
                 "y": 220,
@@ -345,8 +346,8 @@
         },
         {
             "type": "texts",
-            "name:":"movesDesc",
-            "text": ["Ходы", "Moves"],
+            "name:":"scoreDesc",
+            "text": ["Счёт", "Score"],
             "data": {
                 "x": 497,
                 "y": 220,
@@ -361,9 +362,7 @@
                     "y": 1
                 }
             }
-        }
-    ],
-    "HUDScene": [
+        },
         {
             "type": "images",
             "name": "restartImage",
@@ -394,6 +393,62 @@
                     "fontFamily":"KomikaTitle",
                     "fontSize": "38px",
                     "color": "#FAE9E7"
+                }
+            }
+        },
+        {
+            "type": "texts",
+            "name": "scoreText",
+            "text": "",
+            "positionFromObject": {
+                "type": "images",
+                "name": "score",
+                "offset": {
+                    "x": -20,
+                    "y": 0
+                },
+                "origin": {
+                    "x": 1,
+                    "y": 0.5
+                }
+            },
+            "data": {
+                "origin": {
+                    "x": 1,
+                    "y": 0.6
+                },
+                "style": {
+                    "fontFamily":"KomikaTitle",
+                    "fontSize": "38px",
+                    "color": "#793C1D"
+                }
+            }
+        },
+        {
+            "type": "texts",
+            "name": "movesText",
+            "text": "",
+            "positionFromObject": {
+                "type": "images",
+                "name": "moves",
+                "offset": {
+                    "x": -20,
+                    "y": 0
+                },
+                "origin": {
+                    "x": 1,
+                    "y": 0.5
+                }
+            },
+            "data": {
+                "origin": {
+                    "x": 1,
+                    "y": 0.6
+                },
+                "style": {
+                    "fontFamily":"KomikaTitle",
+                    "fontSize": "38px",
+                    "color": "#793C1D"
                 }
             }
         },

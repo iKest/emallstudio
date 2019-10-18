@@ -108,7 +108,8 @@ export default class BaseScene extends Phaser.Scene {
   makeTexts(data) {
     if (!data.data.add) data.data.add = true;
     const text = this.make.text(data.data);
-    if (data.text) text.setText(data.text[this.registry.get("language")]);
+    if (data.text && Array.isArray(data.text)) text.setText(data.text[this.registry.get("language")]);
+    else if (data.text) text.setText(data.text);
     if (data.positionFromObject) {
       const object = this[data.positionFromObject.type][
         data.positionFromObject.name
@@ -127,7 +128,7 @@ export default class BaseScene extends Phaser.Scene {
             ? data.positionFromObject.origin.y
             : 0);
       }
-      if (data.positionFromObject.ooffset) {
+      if (data.positionFromObject.offset) {
         x += data.positionFromObject.offset.x
           ? data.positionFromObject.offset.x
           : 0;
@@ -182,4 +183,12 @@ export default class BaseScene extends Phaser.Scene {
       this[data.type][data.name] = button;
     }
   }
+
+/**
+ * description
+ * @param {*} target
+ */
+switchScene(target) {
+  this.scene.switch(target);
+}
 }
