@@ -5,157 +5,44 @@
 $font:'Montserrat', Arial, Helvetica, sans-serif;
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *:after,
 *:before {
-    -khtml-user-select: none;
-    -webkit-user-drag: none;
-    -moz-user-select: none;
-    -ms-user-drag: none;
-    -khtml-user-drag: none;
-    -o-user-drag: none;
-    -moz-user-drag: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-user-select: none;
-    -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+  -ms-user-drag: none;
+  -khtml-user-drag: none;
+  -o-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 }
 
 html,
 body {
-    width: 100%;
-    height: 100vh;
-    max-height: fill-available;
-    overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  max-height: fill-available;
+  overflow: hidden;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: $font;
-    background-image: url(bg.jpg);
-    background-position: right bottom;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-.gameContainer {
-    width: 100%;
-    height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: $font;
+  background-image: url(bg.jpg);
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 h1 {
-    font-size: 32px;
-}
-
-.lds-roller {
-    display: inline-block;
-    position: relative;
-    width: 64px;
-    height: 64px;
-    top: 50%;
-    left: 50%;
-    transform: perspective(1px) translate(-50%, -50%);
-}
-
-.lds-roller div {
-    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    transform-origin: 32px 32px;
-}
-
-.lds-roller div:after {
-    content: " ";
-    display: block;
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #fff;
-    margin: -3px 0 0 -3px;
-}
-
-.lds-roller div:nth-child(1) {
-    animation-delay: -0.036s;
-}
-
-.lds-roller div:nth-child(1):after {
-    top: 50px;
-    left: 50px;
-}
-
-.lds-roller div:nth-child(2) {
-    animation-delay: -0.072s;
-}
-
-.lds-roller div:nth-child(2):after {
-    top: 54px;
-    left: 45px;
-}
-
-.lds-roller div:nth-child(3) {
-    animation-delay: -0.108s;
-}
-
-.lds-roller div:nth-child(3):after {
-    top: 57px;
-    left: 39px;
-}
-
-.lds-roller div:nth-child(4) {
-    animation-delay: -0.144s;
-}
-
-.lds-roller div:nth-child(4):after {
-    top: 58px;
-    left: 32px;
-}
-
-.lds-roller div:nth-child(5) {
-    animation-delay: -0.18s;
-}
-
-.lds-roller div:nth-child(5):after {
-    top: 57px;
-    left: 25px;
-}
-
-.lds-roller div:nth-child(6) {
-    animation-delay: -0.216s;
-}
-
-.lds-roller div:nth-child(6):after {
-    top: 54px;
-    left: 19px;
-}
-
-.lds-roller div:nth-child(7) {
-    animation-delay: -0.252s;
-}
-
-.lds-roller div:nth-child(7):after {
-    top: 50px;
-    left: 14px;
-}
-
-.lds-roller div:nth-child(8) {
-    animation-delay: -0.288s;
-}
-
-.lds-roller div:nth-child(8):after {
-    top: 45px;
-    left: 10px;
-}
-
-@keyframes lds-roller {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+  font-size: 32px;
 }

@@ -3,7 +3,8 @@ import {Suspense, lazy} from "preact/compat";
 import {html} from "htm/preact";
 import scrollLock from "scroll-lock";
 import Logger from "js-logger";
-import styles from "./styles/style.scss";
+import "./styles/style.scss";
+import Loader from "./components/loader";
 
 
 
@@ -16,12 +17,12 @@ if (process.env.NODE_ENV === "development") {
   Logger.useDefaults();
 }
 const log = Logger.get("index");
+const loader = html`<${Loader} />`;
 log.info("start");
 
 const root = document.body.firstElementChild;
 // render a root component in <body>
-const app = lazy(() => import("./components/app"));
-render(html`<${Suspense} fallback=${html`<div className=${styles["lds-roller"]}><div /><div /><div /><div /><div /><div /><div /><div /></div>`}>
-<${app} /></${Suspense}>`,
+const game = lazy(() => import("./components/game"));
+render(html`<${Suspense} fallback=${loader}><${game} /></${Suspense}>`,
 document.body,
 root);

@@ -41,8 +41,7 @@ export default class BootScene extends BaseScene {
         this.cache.json.get("languages").default
       ]
     );
-
-    this.log.info(this.scene.manager);
+    this.game.events.emit("soure-load-complete");
     /* Объявление анимаций спрайтов
         const animFrames = this.anims.generateFrameNumbers('tile', {
             start: 0,

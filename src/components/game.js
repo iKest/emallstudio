@@ -7,14 +7,16 @@ import ButtonPlugin from "phaser3-rex-plugins/plugins/button-plugin";
 import RoundRectanglePlugin from "phaser3-rex-plugins/plugins/roundrectangle-plugin";
 import BBCodeTextPlugin from "phaser3-rex-plugins/plugins/bbcodetext-plugin";
 import ShakePlugin from "phaser3-rex-plugins/plugins/shakeposition-plugin";
-import BootScene from "./game/scenes/ui/bootScene";
-import BackScene from "./game/scenes/ui/backScene";
-import HelloScene from "./game/scenes/ui/helloScene";
-import WinScene from "./game/scenes/ui/winScene";
-import GameScene from "./game/scenes/game/gameScene";
-import HUDScene from "./game/scenes/game/hudScene";
-import {gameConfig} from "./game/config";
-import styles from "../styles/style.scss";
+import BootScene from "../libs/game/scenes/ui/bootScene";
+import BackScene from "../libs/game/scenes/ui/backScene";
+import HelloScene from "../libs/game/scenes/ui/helloScene";
+import WinScene from "../libs/game/scenes/ui/winScene";
+import GameScene from "../libs/game/scenes/game/gameScene";
+import HUDScene from "../libs/game/scenes/game/hudScene";
+import {gameConfig} from "../libs/game/config";
+import styles from "../styles/game.scss";
+import Loader from "./loader";
+
 
 const plugins = {
   global: [
@@ -49,9 +51,9 @@ const plugins = {
 };
 
 /**
- * description
+ * @param {*} game
  */
-export default class App extends Component {
+export default class Game extends Component {
   log = Logger.get("PhaserComponent");
   ref = createRef();
   state = {
@@ -72,6 +74,7 @@ export default class App extends Component {
     }
 
     this.game.parent = this.ref.current;
+    this.game.callbacks = {postBoot : game => {game.events.once("soure-load-complete", _ => this.ref.current.firstChild.remove());}};
     this.log.info(this.ref.current);
     this.game = new Phaser.Game(this.game);
   };
@@ -82,7 +85,7 @@ export default class App extends Component {
  */
   componentDidMount(...args) {
     this.log.info("componentDidMount", this.ref);
-    this.log.info(args);
+    this.log.info(this.loader);
     if (!this.getGameInstance() && this.state.initialize) {
       this.initializeGame();
     }
@@ -137,9 +140,8 @@ export default class App extends Component {
    * @return {*}
    */
   render(props, state) {
-    this.log.info("render", this.ref);
-    this.log.info(props,state);
-    return html`<div  className=${styles.gameContainer} ref=${this.ref} />`;
+    this.log.info("render");
+    return html`<div id="gameContainer" className=${styles.gameContainer} ref=${this.ref}><${Loader} /></div>`;
   }
 
   /**
