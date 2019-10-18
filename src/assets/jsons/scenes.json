@@ -267,6 +267,155 @@
                 "frame": "play_again"
             }
         },
+        {   "type": "images",
+            "name": "promo",
+            "positionFromAtlas": true,
+            "data": {
+                "key": "atlas",
+                "frame": "promo"
+            }
+        },
+        {
+            "type": "texts",
+            "name": "promo2",
+            "positionFromObject": {
+                "type": "images",
+                "name": "promo",
+                "origin": {
+                    "x": 0.5,
+                    "y": 0
+                },
+                "offset": {
+                    "x": 0,
+                    "y": -10
+                }
+            },
+            "text": ["твой промокод","your promocode"],
+            "data": {
+                "origin": {
+                    "x": 0.5,
+                    "y": 1
+                },
+                "style": {
+                    "fontFamily":"KomikaTitle",
+                    "fontSize": "48px",
+                    "color": "#88350E",
+                    "align": "center"
+                }
+            }
+        },
+        {
+            "type": "texts",
+            "name": "promo3",
+            "positionFromObject": {
+                "type": "images",
+                "name": "promo",
+                "origin": {
+                    "x": 0.5,
+                    "y": 0.5
+                }
+            },
+            "text": "",
+            "data": {
+                "origin": {
+                    "x": 0.5,
+                    "y": 0.6
+                },
+                "style": {
+                    "fontFamily":"KomikaTitle",
+                    "fontSize": "110px",
+                    "color": "#88350E"
+                }
+            }
+        },
+        {
+            "type": "texts",
+            "name": "promo4",
+            "positionFromObject": {
+                "type": "images",
+                "name": "promo",
+                "origin": {
+                    "x": 0.5,
+                    "y": 1
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 10
+                }
+            },
+            "text": ["используй его при следующем\nпосещении нашей кофейни","use it the next time\nyou visit our cafe"],
+            "data": {
+                "origin": {
+                    "x": 0.5,
+                    "y": 0
+                },
+                "style": {
+                    "fontFamily":"KomikaTitle",
+                    "fontSize": "32px",
+                    "color": "#88350E",
+                    "align": "center"
+                }
+            }
+        },
+        {
+            "type": "texts",
+            "name": "promo5",
+            "positionFromObject": {
+                "type": "images",
+                "name": "promo",
+                "origin": {
+                    "x": 0.5,
+                    "y": 1
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 145
+                }
+            },
+            "text": ["хочешь лучше?\nсыграй ещё раз!","do you want better?\nlets play again!"],
+            "data": {
+                "origin": {
+                    "x": 0.5,
+                    "y": 0
+                },
+                "style": {
+                    "fontFamily":"KomikaTitle",
+                    "fontSize": "48px",
+                    "color": "#88350E",
+                    "align": "center"
+                }
+            }
+        },
+        {
+            "type": "texts",
+            "name": "promo1",
+            "positionFromObject": {
+                "type": "images",
+                "name": "promo",
+                "origin": {
+                    "x": 0.5,
+                    "y": 0
+                },
+                "offset": {
+                    "x": 0,
+                    "y": -90
+                }
+            },
+            "text": ["поздравляем!\nты набрал очков: ","congratulations!\nyou scored points: "],
+            "addText": "score",
+            "data": {
+                "origin": {
+                    "x": 0.5,
+                    "y": 1
+                },
+                "style": {
+                    "fontFamily":"KomikaTitle",
+                    "fontSize": "54px",
+                    "color": "#88350E",
+                    "align": "center"
+                }
+            }
+        },
         {
             "type": "texts",
             "name": "playAgainText",

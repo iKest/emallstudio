@@ -30,7 +30,6 @@ export default class HelloScene extends BaseScene {
       y: this.cameras.main.height * 0.5 + 30,
       width: 600,
       height: 750,
-
       text: this.make.rexBBCodeText({
         style: {
           fontFamily: "Antikvar",
@@ -41,7 +40,7 @@ export default class HelloScene extends BaseScene {
         space: {
           text: {
             top: 0,
-            bottom: 60
+            bottom: 0
           }
         },
         add: true
@@ -60,7 +59,12 @@ export default class HelloScene extends BaseScene {
 Игра заканчивается, когда не останется ходов или, когда с поля будут убраны все фишки.
 
 *
-[b][color=#D6000C]Ароматный кофе ждёт тебя![/color][/b]`,
+[b][color=#D6000C]Ароматный кофе ждёт тебя![/color][/b]
+
+
+
+
+`,
       name: "helloText"
     })
       .setDepth(-1)

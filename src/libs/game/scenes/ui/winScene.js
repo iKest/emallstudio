@@ -20,6 +20,7 @@ export default class WinScene extends BaseScene {
    */
   create() {
     super.create();
+    this.setPtomo();
     this.buttons.playAgain.setEnable(true);
   }
 
@@ -35,7 +36,17 @@ export default class WinScene extends BaseScene {
    * description
    */
   wake() {
-    super.awake();
+    super.wake();
+    this.setPtomo();
     this.buttons.playAgain.setEnable(true);
+  }
+
+  /**
+   * description
+   */
+  setPtomo() {
+    const score = this.registry.get("score");
+    const [promo] = this.cache.json.get("promocodes").promocodes.filter(promo => promo[1] < score &&  score < promo[2]);
+    this.texts.promo3.setText(promo[0]);
   }
 }

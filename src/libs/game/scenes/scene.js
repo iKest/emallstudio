@@ -108,8 +108,9 @@ export default class BaseScene extends Phaser.Scene {
   makeTexts(data) {
     if (!data.data.add) data.data.add = true;
     const text = this.make.text(data.data);
-    if (data.text && Array.isArray(data.text)) text.setText(data.text[this.registry.get("language")]);
-    else if (data.text) text.setText(data.text);
+    const add = data.addText? this.registry.get(data.addText) : "";
+    if (data.text && Array.isArray(data.text)) text.setText(`${data.text[this.registry.get("language")]}${add}`);
+    else if (data.text) text.setText(`${data.text}${add}`);
     if (data.positionFromObject) {
       const object = this[data.positionFromObject.type][
         data.positionFromObject.name
