@@ -1,5 +1,5 @@
-import {Component, h, createRef} from "preact";
-import htm from "htm";
+import {Component, createRef} from "preact";
+import {html} from "htm/preact";
 import Logger from "js-logger";
 import Phaser from "phaser";
 import WebFontLoader from "phaser3-rex-plugins/plugins/webfontloader-plugin";
@@ -15,8 +15,6 @@ import GameScene from "./game/scenes/game/gameScene";
 import HUDScene from "./game/scenes/game/hudScene";
 import {gameConfig} from "./game/config";
 import styles from "../styles/style.scss";
-
-const html = htm.bind(h);
 
 const plugins = {
   global: [
@@ -50,7 +48,6 @@ const plugins = {
   ]
 };
 
-Logger.useDefaults();
 /**
  * description
  */

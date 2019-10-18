@@ -1,7 +1,11 @@
-import {h, render} from "preact";
-import htm from "htm";
-import App from "./components/app";
+import {render} from "preact";
+import {Suspense, lazy} from "preact/compat";
+import {html} from "htm/preact";
 import scrollLock from "scroll-lock";
+import Logger from "js-logger";
+import styles from "./styles/style.scss";
+
+
 
 scrollLock.disablePageScroll();
 
@@ -9,22 +13,15 @@ if (process.env.NODE_ENV === "development") {
   // react devtools
   // eslint-disable-next-line global-require
   require("preact/debug");
+  Logger.useDefaults();
 }
-const html = htm.bind(h);
+const log = Logger.get("index");
+log.info("start");
 
-let root = document.body.firstElementChild;
+const root = document.body.firstElementChild;
 // render a root component in <body>
-const rendering = Component => {
-  root = render(
-    html`<${Component} />`,
-    document.body,
-    root
-  );
-};
-
-// preact hmr
-if (module.hot) {
-  module.hot.accept("./components/app", () => rendering(App));
-}
-
-rendering(App);
+const app = lazy(() => import("./components/app"));
+render(html`<${Suspense} fallback=${html`<div className=${styles["lds-roller"]}><div /><div /><div /><div /><div /><div /><div /><div /></div>`}>
+<${app} /></${Suspense}>`,
+document.body,
+root);

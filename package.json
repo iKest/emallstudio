@@ -82,6 +82,7 @@
     },
     "dependencies": {
         "arr-swap": "^1.0.1",
+        "bss": "^1.6.3",
         "capitalize": "^2.0.0",
         "float-equal": "^2.0.0",
         "htm": "^2.2.1",
