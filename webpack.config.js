@@ -279,7 +279,6 @@ const common = {
   },
   plugins,
   stats: {colors: true},
-
   node: {
     global: true,
     process: false,
