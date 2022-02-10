@@ -55,7 +55,7 @@
         "friendly-errors-webpack-plugin": "^1.7.0",
         "html-webpack-plugin": "^3.2.0",
         "mini-css-extract-plugin": "^0.8.0",
-        "node-sass": "^4.12.0",
+        "node-sass": "^7.0.0",
         "postcss-colour-functions": "^1.5.2",
         "postcss-import": "^12.0.1",
         "postcss-loader": "^3.0.0",
